@@ -1,7 +1,6 @@
 import { Scene } from 'phaser';
 
-let canJump = true; // Variável de controle
-let temp1=0;
+
 var platforms;
 var player;
 var cursors;
@@ -13,7 +12,6 @@ var shields;
 var power = false;
 var highestScore = 0;
 var gameOver = false; // Inicializado
-let pressedDown = false; // Controle para verificar se a seta para baixo foi pressionada
 
 
 export class Game extends Scene {
@@ -173,7 +171,7 @@ export class Game extends Scene {
             player.anims.play('turn');
             gameOver = true;
 
-            this.add.text(400, 300, 'PERDEU', { fontSize: '32px', fill: '#FF0000' }).setOrigin(0.5);
+            this.add.text(400, 300, 'PERDEU!', { fontSize: '32px', fill: '#FF0000' }).setOrigin(0.5);
             
             let playAgain = this.add.text(400, 400, 'Jogar de Novo?')
                 .setOrigin(0.5)
