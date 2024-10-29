@@ -164,6 +164,7 @@ export class Game extends Scene {
 
     hitBomb(player, bomb) {
         if (power) {
+            bomb.disableBody(true, true); // Desativa e "destrói" a bomba
             power = false;
             player.setTint(0xffffff);
         } else {
@@ -172,9 +173,9 @@ export class Game extends Scene {
             player.anims.play('turn');
             gameOver = true;
 
-            this.add.text(400, 300, 'GAME OVER', { fontSize: '32px', fill: '#FF0000' }).setOrigin(0.5);
+            this.add.text(400, 300, 'PERDEU', { fontSize: '32px', fill: '#FF0000' }).setOrigin(0.5);
             
-            let playAgain = this.add.text(400, 400, 'Play Again')
+            let playAgain = this.add.text(400, 400, 'Jogar de Novo?')
                 .setOrigin(0.5)
                 .setPadding(10)
                 .setStyle({ backgroundColor: '#111' })
